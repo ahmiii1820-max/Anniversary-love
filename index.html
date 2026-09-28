@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Special Story ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#140711;color:#fff;font-family:Georgia,serif}
+.page{display:none;min-height:100vh;padding:25px;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 20% 20%,#8b234a55,transparent 30%),linear-gradient(135deg,#180913,#350d22,#100812)}
+.page.active{display:flex}.card{width:min(720px,95vw);padding:30px 20px;border:1px solid #ffffff25;border-radius:28px;background:#ffffff0d;backdrop-filter:blur(14px);box-shadow:0 25px 70px #0009}
+h1{font-size:clamp(30px,8vw,55px)}h2{font-size:clamp(26px,7vw,42px)}p{font-size:17px;line-height:1.7;color:#f8e8ef}
+input{padding:15px;width:min(400px,85%);border-radius:30px;border:1px solid #ffffff35;background:#10070d;color:#fff;text-align:center;font-size:17px}
+button{padding:14px 22px;margin:8px;border:0;border-radius:30px;background:linear-gradient(135deg,#ff4f91,#9d45d7);color:white;font-weight:bold;font-size:16px}
+.heart{font-size:70px;animation:b 1.2s infinite}@keyframes b{50%{transform:scale(1.15)}}
+#error{color:#ff9cbd;min-height:55px;margin-top:10px}.note{max-width:600px;margin:auto;text-align:left}
+.photo{width:min(560px,95%);max-height:65vh;object-fit:contain;border-radius:20px}.caption{margin:15px;color:#ffd5e5;font-size:18px;min-height:55px}
+video{width:min(700px,95%);max-height:65vh;border-radius:18px;background:#000}
+.stars{position:absolute;inset:0}.star{position:absolute;cursor:pointer;font-size:22px;animation:t 1.5s infinite alternate}@keyframes t{to{opacity:.2;transform:scale(.6)}}
+.wish{display:none;position:fixed;inset:0;background:#000c;z-index:9;align-items:center;justify-content:center;padding:20px}.wish.show{display:flex}.wishbox{background:#42132e;padding:30px;border-radius:25px;max-width:550px}
+.envelope{font-size:100px;cursor:pointer}.letter{display:none;background:#fff2f6;color:#4b1728;padding:25px;border-radius:18px;text-align:left;line-height:1.8}.letter.show{display:block}.letter p{color:#4b1728}
+</style>
+</head>
+<body>
+<audio id="song1" loop src="song1.mp3"></audio>
+<audio id="song2" loop src="song2.mp3"></audio>
+<audio id="song3" loop src="song3.mp3"></audio>
+
+<section id="passwordPage" class="page active"><div class="card">
+<div class="heart">❤️</div><h1>OUR SPECIAL DATE</h1><p>Our Anniversary</p>
+<p>Mohtrama... apni special date enter karein 💕</p>
+<input id="password" type="password" placeholder="Enter our special date"><br>
+<button onclick="checkPassword()">🔐 Unlock Our Story</button><div id="error"></div>
+</div></section>
+
+<section id="notePage" class="page"><div class="card">
+<h2>For You, Mohtrama ❤️</h2><div class="note">
+<p>I know I am a little late... and I'm genuinely sorry. 🥺</p>
+<p>But some things deserve to be made slowly, carefully, and with all the love in the heart.</p>
+<p>This little website is a collection of memories, smiles and moments I want to keep close forever.</p>
+<p>Thank you for being a beautiful part of my life. ❤️</p><p><b>Happy Anniversary to us. 🥹💕</b></p></div>
+<button onclick="openMemories()">Open Your Surprise ❤️</button></div></section>
+
+<section id="memoriesPage" class="page"><div class="card">
+<h2>Our Little Memories 📸</h2><img id="photo" class="photo"><div id="caption" class="caption"></div><div id="photoCount"></div>
+<button onclick="previousPhoto()">← Previous</button><button onclick="nextPhoto()">Next →</button><br>
+<button onclick="openGalaxy()">Continue to Our Wishes ✨</button></div></section>
+
+<section id="galaxyPage" class="page"><div class="stars" id="stars"></div><div class="card">
+<h2>A Galaxy of Wishes ✨</h2><p>Click the glowing stars... each one hides a little wish. 💕</p><div style="font-size:70px">🌌</div>
+<button onclick="openVideos()">Continue to Our Videos 🎬</button></div></section>
+
+<div id="wish" class="wish" onclick="closeWish()"><div class="wishbox" onclick="event.stopPropagation()">
+<h2>✨</h2><p id="wishText"></p><button onclick="closeWish()">Close ❤️</button></div></div>
+
+<section id="videosPage" class="page"><div class="card">
+<h2>Our Moments 🎬❤️</h2><video id="video" controls playsinline></video><div id="videoCount"></div>
+<button onclick="previousVideo()">← Previous</button><button onclick="nextVideo()">Next →</button><br>
+<button onclick="openLetter()">Last Surprise 💌</button></div></section>
+
+<section id="letterPage" class="page"><div class="card">
+<h2>One Last Thing... 💌</h2><p>Open this with your heart.</p>
+<div id="envelope" class="envelope" onclick="openLetterAnimation()">💌</div>
+<div id="letter" class="letter"><h2>My Love ❤️</h2>
+<p>Maybe I don't always find the perfect words, but I hope this little surprise says what my heart sometimes cannot.</p>
+<p>You have become a beautiful part of my memories, my smiles, and the little moments that make ordinary days feel special.</p>
+<p>I don't know what every tomorrow will look like, but I know I want to keep collecting beautiful moments with you.</p>
+<p>Thank you for every smile, every conversation, every memory, and every little thing that makes you <b>you</b>. 🥺❤️</p>
+<p><b>Happy Anniversary, Mohtrama.</b></p><p>May our story keep getting longer, sweeter and more beautiful. 🌹</p>
+<p style="text-align:center;font-size:22px">I choose you, again and again. ❤️</p></div>
+</div></section>
+
+<script>
+const correctPassword="24September2025";
+const photos=[
+["photo 1.jpg","jealous hua tha Maine Socha baccha hai khair hai. ❤️"],
+["photo 2.jpg","yah aankhen Hain qatla karte Hain 💕"],
+["photo 3.jpg","inshallah asa hi family raha gi humhari. 🥺"],
+["photo 4.jpg","pyari to aap ho but ismein qatil lag rahi ho qatil. ❤️"],
+["photo 5.jpg","Motu aapke cheeks mashallah. ✨"],
+["photo 6.jpg","ek to pata nahin bachon ke sath itna attach ho jaati hai❤️"],
+["photo 7.jpg","You make ordinary moments feel special. 🌹"],
+["photo 8.jpg","This one will always have a place in my heart. ❤️"],
+["photo 9.jpg","Still smiling because of this memory. 🥰"],
+["photo 10.jpg","yeh picture mana nikalaiii thi And this is only one chapter of our story. 💕"]];
+const videos=["video1.mp4","video2.mp4","video3.mp4","video4.mp4","video5.mp4"];
+const wishes=["May we always find our way back to each other. ❤️","May our smiles never become strangers. 🥺💕","May every year bring us closer. ✨","May our story always have another beautiful chapter. 🌹","May we keep making memories worth remembering. ❤️","May our little world always feel like home. 🏡💕"];
+let pi=0,vi=0;
+function $(x){return document.getElementById(x)}
+function page(x){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));$(x).classList.add("active")}
+function stop(){["song1","song2","song3"].forEach(x=>{$(x).pause();$(x).currentTime=0})}
+function play(x){stop();$(x).play().catch(()=>{})}
+function checkPassword(){if($("password").value.trim()===correctPassword){$("error").textContent="";page("notePage");play($("song1"))}else{$("error").innerHTML="It's okayy... apko date nahi yaad 😅💕<br>Apna bacha se pooch lijiye 😂❤️";$("password").value=""}}
+$("password").onkeydown=e=>{if(e.key==="Enter")checkPassword()};
+function openMemories(){page("memoriesPage");play($("song2"));photoUpdate()}
+function photoUpdate(){$("photo").src=photos[pi][0];$("caption").textContent=photos[pi][1];$("photoCount").textContent=(pi+1)+" / "+photos.length}
+function nextPhoto(){pi=(pi+1)%photos.length;photoUpdate()}function previousPhoto(){pi=(pi-1+photos.length)%photos.length;photoUpdate()}
+function openGalaxy(){page("galaxyPage");let s=$("stars");s.innerHTML="";for(let i=0;i<30;i++){let e=document.createElement("span");e.className="star";e.textContent="✦";e.style.left=Math.random()*96+"%";e.style.top=Math.random()*92+"%";e.onclick=showWish;s.appendChild(e)}}
+function showWish(){ $("wishText").textContent=wishes[Math.floor(Math.random()*wishes.length)];$("wish").classList.add("show")}
+function closeWish(){$("wish").classList.remove("show")}
+function openVideos(){page("videosPage");stop();videoUpdate()}
+function videoUpdate(){let v=$("video");v.pause();v.src=videos[vi];v.load();$("videoCount").textContent=(vi+1)+" / "+videos.length}
+function nextVideo(){if(vi<videos.length-1){vi++;videoUpdate()}else openLetter()}function previousVideo(){if(vi>0){vi--;videoUpdate()}}
+function openLetter(){page("letterPage");$("video").pause()}
+function openLetterAnimation(){$("envelope").style.display="none";$("letter").classList.add("show");play($("song3"))}
+photoUpdate();videoUpdate();
+</script></body></html>
