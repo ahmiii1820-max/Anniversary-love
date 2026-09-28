@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Special Story ❤️</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#020817;color:#fff;font-family:Georgia,serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 10%,#3b82f633,transparent 28%),radial-gradient(circle at 85% 80%,#2563eb22,transparent 32%);z-index:-1}
+.page{display:none;min-height:100vh;padding:25px 15px 95px;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 20% 20%,#38bdf822,transparent 25%),radial-gradient(circle at 80% 70%,#6366f122,transparent 30%),linear-gradient(135deg,#020617,#07152f,#030712)}
+.page.active{display:flex}.card{width:min(720px,96vw);padding:30px 20px;border:1px solid #93c5fd35;border-radius:30px;background:linear-gradient(145deg,#ffffff12,#38bdf80a);backdrop-filter:blur(18px);box-shadow:0 25px 80px #000b,0 0 45px #38bdf20d}
+h1{font-size:clamp(30px,8vw,55px);text-shadow:0 0 25px #60a5fa66}h2{font-size:clamp(26px,7vw,42px);text-shadow:0 0 18px #60a5fa44}p{font-size:17px;line-height:1.7;color:#e0edff}
+input{padding:15px;width:min(400px,85%);border-radius:30px;border:1px solid #60a5fa55;background:#020817cc;color:#fff;text-align:center;font-size:17px;outline:none;box-shadow:0 0 20px #38bdf21a}input:focus{border-color:#60a5fa;box-shadow:0 0 25px #38bdf244}
+button{padding:14px 22px;margin:8px;border:1px solid #93c5fd33;border-radius:30px;background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;font-weight:bold;font-size:16px;box-shadow:0 8px 25px #0284c933;cursor:pointer}button:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.heart{font-size:70px;animation:b 1.2s infinite;text-shadow:0 0 35px #60a5fa}@keyframes b{50%{transform:scale(1.15)}}
+#error{color:#93c5fd;min-height:55px;margin-top:10px}.note{max-width:600px;margin:auto;text-align:left}.photo{width:min(560px,95%);max-height:65vh;object-fit:contain;border-radius:20px;border:1px solid #93c5fd33;box-shadow:0 15px 45px #0008}.caption{margin:15px;color:#cfe6ff;font-size:18px;min-height:55px}video{width:min(700px,95%);max-height:65vh;border-radius:18px;background:#000;border:1px solid #60a5fa33}
+/* Premium Galaxy */
+#galaxyPage{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 48%,#1e3a8a55 0%,#0b1f4d44 22%,transparent 45%),radial-gradient(circle at 18% 25%,#06b6d433,transparent 25%),radial-gradient(circle at 85% 75%,#6366f133,transparent 28%),linear-gradient(135deg,#01030c,#06132d 50%,#020617)}
+#galaxyPage:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#38bdf31f,transparent 62%);filter:blur(5px);animation:nebula 8s ease-in-out infinite alternate}@keyframes nebula{to{transform:scale(1.2) rotate(20deg);opacity:.65}}
+.galaxy-scene{position:absolute;inset:0;overflow:hidden;pointer-events:none}.stars{position:absolute;inset:0;z-index:1}.star{position:absolute;cursor:pointer;font-size:clamp(13px,3vw,24px);color:#dbeafe;text-shadow:0 0 8px #fff,0 0 18px #38bdf2,0 0 28px #60a5fa;animation:twinkle 1.5s infinite alternate;pointer-events:auto}.star:nth-child(3n){color:#a5f3fc}.star:nth-child(4n){font-size:12px}.star:hover{transform:scale(1.8);color:#fff}@keyframes twinkle{to{opacity:.25;transform:scale(.65)}}
+.planet{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;z-index:2;background:radial-gradient(circle at 35% 28%,#e0f2fe 0 3%,#67e8f9 10%,#2563eb 35%,#172554 68%,#020617 100%);box-shadow:0 0 35px #38bdf288,0 0 90px #2563eb55,inset -25px -20px 35px #020617aa;animation:floatPlanet 5s ease-in-out infinite}@keyframes floatPlanet{50%{transform:translate(-50%,-53%)}}.planet:before{content:"";position:absolute;left:-45px;top:72px;width:280px;height:45px;border:2px solid #bae6fd55;border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 18px #38bdf244}.planet:after{content:"♥";position:absolute;inset:0;display:grid;place-items:center;color:#e0f2feaa;font-size:34px;text-shadow:0 0 18px #38bdf2}
+.galaxy-card{position:relative;z-index:4;background:#02081799}.galaxy-sub{color:#bfdbfe}.wish{display:none;position:fixed;inset:0;background:#000c;z-index:30;align-items:center;justify-content:center;padding:20px}.wish.show{display:flex}.wishbox{background:linear-gradient(145deg,#0b1f4d,#06132d);border:1px solid #60a5fa55;padding:30px;border-radius:25px;max-width:550px;box-shadow:0 0 70px #2563eb44}.wishbox h2{color:#bae6fd}.wishbox p{color:#e0f2fe}
+.envelope{font-size:100px;cursor:pointer;filter:drop-shadow(0 0 20px #38bdf2);animation:float 2s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}.letter{display:none;background:#eff6ff;color:#082f49;padding:25px;border-radius:18px;text-align:left;line-height:1.8;box-shadow:0 20px 50px #0008}.letter.show{display:block}.letter p{color:#164e63}
+.nav{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:20;width:min(720px,94vw);padding:8px;border-radius:22px;background:#020817dd;border:1px solid #60a5fa35;backdrop-filter:blur(14px);box-shadow:0 10px 35px #0008;text-align:center}.nav.show{display:block}.nav button{font-size:13px;padding:9px 11px;margin:3px}.music{position:fixed;right:12px;top:12px;z-index:21;padding:10px 13px;border-radius:20px;background:#0b1f4dcc;border:1px solid #60a5fa55;color:#fff;font-weight:bold;display:none}.music.show{display:block}
+@media(max-width:520px){.planet{width:145px;height:145px}.planet:before{left:-35px;width:215px}.card{padding:25px 14px}.nav button{font-size:11px;padding:8px 8px}}
+</style>
+</head>
+<body>
+<audio id="song1" loop src="song1.mp3"></audio>
+<audio id="song2" loop src="song2.mp3"></audio>
+<audio id="song3" loop src="song3.mp3"></audio>
+
+<div id="musicBtn" class="music" onclick="toggleMusic()">🔇 Music</div>
+<div id="nav" class="nav">
+<button onclick="goNote()">📝 Note</button>
+<button onclick="goMemories()">📸 Memories</button>
+<button onclick="goGalaxy()">✨ Galaxy</button>
+<button onclick="goVideos()">🎬 Videos</button>
+<button onclick="goLetter()">💌 Letter</button>
+</div>
+
+<section id="passwordPage" class="page active"><div class="card">
+<div class="heart">❤️</div><h1>OUR SPECIAL DATE</h1><p>Our Anniversary</p>
+<p>Mohtrama... apni special date enter karein 💕</p>
+<input id="password" type="password" placeholder="Enter our special date"><br>
+<button onclick="checkPassword()">🔐 Unlock Our Story</button><div id="error"></div>
+</div></section>
+
+<section id="notePage" class="page"><div class="card">
+<h2>For You, Mohtrama ❤️</h2><div class="note">
+<p>I know I am a little late... and I'm genuinely sorry. 🥺</p>
+<p>But some things deserve to be made slowly, carefully, and with all the love in the heart.</p>
+<p>This little website is a collection of memories, smiles and moments I want to keep close forever.</p>
+<p>Thank you for being a beautiful part of my life. ❤️</p><p><b>Happy Anniversary to us. 🥹💕</b></p></div>
+<button onclick="openMemories()">Open Your Surprise ❤️</button></div></section>
+
+<section id="memoriesPage" class="page"><div class="card">
+<h2>Our Little Memories 📸</h2><img id="photo" class="photo"><div id="caption" class="caption"></div><div id="photoCount"></div>
+<button onclick="previousPhoto()">← Previous</button><button onclick="nextPhoto()">Next →</button><br>
+<button onclick="openGalaxy()">Continue to Our Wishes ✨</button></div></section>
+
+<section id="galaxyPage" class="page">
+<div class="galaxy-scene"><div class="stars" id="stars"></div><div class="planet"></div></div>
+<div class="card galaxy-card">
+<div style="font-size:18px;color:#7dd3fc;letter-spacing:3px">OUR LITTLE UNIVERSE</div>
+<h2>🌌 A Galaxy Made For Us</h2>
+<p class="galaxy-sub">Every glowing star carries a little wish for our story. ✨<br>Tap any star and discover one. 💙</p>
+<button onclick="openVideos()">Continue to Our Videos 🎬</button>
+</div></section>
+
+<div id="wish" class="wish" onclick="closeWish()"><div class="wishbox" onclick="event.stopPropagation()">
+<h2>✨</h2><p id="wishText"></p><button onclick="closeWish()">Close ❤️</button></div></div>
+
+<section id="videosPage" class="page"><div class="card">
+<h2>Our Moments 🎬❤️</h2><video id="video" controls playsinline></video><div id="videoCount"></div>
+<button onclick="previousVideo()">← Previous</button><button onclick="nextVideo()">Next →</button><br>
+<button onclick="openLetter()">Last Surprise 💌</button></div></section>
+
+<section id="letterPage" class="page"><div class="card">
+<h2>One Last Thing... 💌</h2><p>Open this with your heart.</p>
+<div id="envelope" class="envelope" onclick="openLetterAnimation()">💌</div>
+<div id="letter" class="letter"><h2>My Love ❤️</h2>
+<p>Maybe I don't always find the perfect words, but I hope this little surprise says what my heart sometimes cannot.</p>
+<p>You have become a beautiful part of my memories, my smiles, and the little moments that make ordinary days feel special.</p>
+<p>I don't know what every tomorrow will look like, but I know I want to keep collecting beautiful moments with you.</p>
+<p>Thank you for every smile, every conversation, every memory, and every little thing that makes you <b>you</b>. 🥺❤️</p>
+<p><b>Happy Anniversary, Mohtrama.</b></p><p>May our story keep getting longer, sweeter and more beautiful. 🌹</p>
+<p style="text-align:center;font-size:22px">I choose you, again and again. ❤️</p></div>
+</div></section>
+
+<script>
+const correctPassword="24September2025";
+const photos=[
+["photo 1.jpg","jealous hua tha Maine Socha baccha hai khair hai. ❤️"],
+["photo 2.jpg","yah aankhen Hain qatla karte Hain 💕"],
+["photo 3.jpg","inshallah asa hi family raha gi humhari. 🥺"],
+["photo 4.jpg","pyari to aap ho but ismein qatil lag rahi ho qatil. ❤️"],
+["photo 5.jpg","Motu aapke cheeks mashallah. ✨"],
+["photo 6.jpg","ek to pata nahin bachon ke sath itna attach ho jaati hai❤️"],
+["photo 7.jpg","You make ordinary moments feel special. 🌹"],
+["photo 8.jpg","This one will always have a place in my heart. ❤️"],
+["photo 9.jpg","Still smiling because of this memory. 🥰"],
+["photo 10.jpg","yeh picture mana nikalaiii thi And this is only one chapter of our story. 💕"]];
+const videos=["video1.mp4","video2.mp4","video3.mp4","video4.mp4","video5.mp4"];
+const wishes=["May we always find our way back to each other. ❤️","May our smiles never become strangers. 🥺💕","May every year bring us closer. ✨","May our story always have another beautiful chapter. 🌹","May we keep making memories worth remembering. ❤️","May our little world always feel like home. 🏡💕"];
+let pi=0,vi=0,currentSong=null,musicOn=false;
+function $(x){return document.getElementById(x)}
+function page(x){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));$(x).classList.add("active")}
+function showControls(){ $("nav").classList.add("show"); $("musicBtn").classList.add("show") }
+function stop(){["song1","song2","song3"].forEach(x=>{let a=$(x);a.pause();a.currentTime=0}) ; currentSong=null; musicOn=false; updateMusicButton()}
+function play(x){["song1","song2","song3"].forEach(id=>{let a=$(id);if(a!==x){a.pause();a.currentTime=0}});currentSong=x;musicOn=true;updateMusicButton();let promise=x.play();if(promise)promise.catch(()=>{musicOn=false;updateMusicButton()})}
+function updateMusicButton(){$("musicBtn").textContent=musicOn?"🔊 Music":"🔇 Music"}
+function toggleMusic(){if(!currentSong)return;if(currentSong.paused){let p=currentSong.play();musicOn=true;if(p)p.catch(()=>{});}else{currentSong.pause();musicOn=false}updateMusicButton()}
+function checkPassword(){if($("password").value.trim()===correctPassword){$("error").textContent="";page("notePage");showControls();play($("song1"))}else{$("error").innerHTML="It's okayy... apko date nahi yaad 😅💕<br>Apna bacha se pooch lijiye 😂❤️";$("password").value=""}}
+$("password").onkeydown=e=>{if(e.key==="Enter")checkPassword()};
+function goNote(){page("notePage");if(!currentSong)play($("song1"))}
+function goMemories(){openMemories()}
+function goGalaxy(){openGalaxy()}
+function goVideos(){openVideos()}
+function goLetter(){openLetter()}
+function openMemories(){page("memoriesPage");play($("song2"));photoUpdate()}
+function photoUpdate(){$("photo").src=photos[pi][0];$("caption").textContent=photos[pi][1];$("photoCount").textContent=(pi+1)+" / "+photos.length}
+function nextPhoto(){pi=(pi+1)%photos.length;photoUpdate()}
+function previousPhoto(){pi=(pi-1+photos.length)%photos.length;photoUpdate()}
+function openGalaxy(){page("galaxyPage");let s=$("stars");s.innerHTML="";for(let i=0;i<55;i++){let e=document.createElement("span");e.className="star";e.textContent=i%7===0?"✦":"·";e.style.left=(Math.random()*98)+"%";e.style.top=(Math.random()*92)+"%";e.style.animationDelay=(Math.random()*2.5)+"s";e.onclick=showWish;s.appendChild(e)}}
+function showWish(){$("wishText").textContent=wishes[Math.floor(Math.random()*wishes.length)];$("wish").classList.add("show")}
+function closeWish(){$("wish").classList.remove("show")}
+function openVideos(){page("videosPage");stop();videoUpdate()}
+function videoUpdate(){let v=$("video");v.pause();v.src=videos[vi];v.load();$("videoCount").textContent=(vi+1)+" / "+videos.length}
+function nextVideo(){if(vi<videos.length-1){vi++;videoUpdate()}else openLetter()}
+function previousVideo(){if(vi>0){vi--;videoUpdate()}}
+function openLetter(){page("letterPage");$("video").pause()}
+function openLetterAnimation(){$("envelope").style.display="none";$("letter").classList.add("show");play($("song3"))}
+photoUpdate();videoUpdate();
+</script></body></html>
